@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="F21_NetworkingApp.MainPage">
+
+
+
+    <!-- Main Container -->
+    <RelativeLayout >
+
+         <StackLayout Orientation="Horizontal" HorizontalOptions="End" >
+            <SearchBar SearchButtonPressed="SearchBar_SearchButtonPressed"
+                       TextChanged="SearchBar_TextChanged"
+                       Placeholder="Ingredient name"
+                       WidthRequest="320"/>
+        </StackLayout>
+        <!-- Page Title -->
+        <Label 
+            Text="Ingriedent List"
+            TextColor="LightSeaGreen" 
+            HorizontalOptions="Center" 
+            FontSize="Large" 
+            FontAttributes="Bold"
+            RelativeLayout.WidthConstraint="{ConstraintExpression
+            Type=RelativeToParent,
+            Property=Width,
+            Factor=1
+          }"
+            RelativeLayout.HeightConstraint="{ConstraintExpression
+            Type=RelativeToParent,
+            Property=Height,
+            Factor=0.4
+          }"
+            RelativeLayout.YConstraint="{ConstraintExpression 
+            Type=Constant,
+            ElementName=banner,
+            Property=Height,
+            Factor=1, Constant=60
+          }"/>
+
+        <!-- ListView Container -->
+        <ListView
+            x:Name="ingredintList" 
+            RelativeLayout.YConstraint="{ConstraintExpression 
+            Type=Constant,
+            Property=Height,
+            Factor=1, Constant= 120
+          }">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                  <ImageCell Text="{Binding name}"
+                             ImageSource="{Binding imageURL}"
+                             />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+       
+    </RelativeLayout>
+</ContentPage>
+
+
